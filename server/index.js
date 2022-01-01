@@ -3,16 +3,19 @@ const express = require("express");
 // Config
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
+const db = require("./data/database");
 
 const app = express();
 
+// 'urlencoded' is used to handle 'application/x-www-form-urlencoded' data
+app.use(express.json());
+
 // Routes
 const testAPIRoute = require("./routes/api/test");
-
-// 'urlencoded' is used to handle 'application/x-www-form-urlencoded' data
-app.use(express.urlencoded({ extended: false }));
 app.use("/api", testAPIRoute);
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+db.connectToDatabase().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
 });
