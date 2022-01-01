@@ -9,7 +9,7 @@ AI-Based Pet Identification & Adoption System with MERN Stack.
 -   Server Template: Express App, Test API
 -   Client Template: CRA, Tailwind
 
-## **API Usage**I
+## **API Usage**
 
 -   GET: `/api/tests` - List Tests
 -   POST: `/api/tests` - Create Test
